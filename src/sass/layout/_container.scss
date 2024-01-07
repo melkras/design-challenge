@@ -1,0 +1,10 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+    border-radius: 1.6rem;
+    box-shadow: 0 1.2rem 2.4rem 0 #00000014;
+    padding: 3.2rem;
+    background-color: var(--theme-bg-neutral-default);
+    z-index: 1;
+}

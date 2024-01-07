@@ -1,0 +1,120 @@
+// BORDERS
+$btn-border-transparent: .15rem solid transparent;
+$btn-border: .15rem solid var(--theme-border-app);
+
+.btn {
+    @include apply-font-styles($ui, medium, bold);
+    padding: .5rem;
+    border-radius: .8rem;
+    cursor: pointer;
+    display: flex;
+    transition: all ease-out 75ms;
+    border: $btn-border-transparent;
+    font-family: 'DMSans';
+    justify-content: center;
+
+    &__text {
+        padding: 0rem .8rem;
+        gap: .8rem;
+    }
+
+    &--primary {
+        background-color: var(--theme-bg-accent-default);
+        color: var(--theme-text-inverse);
+
+
+        .btn__icon {
+            @include colored-icon(#fff);
+        }
+
+        .btn__text {
+            color: var(--theme-text-inverse);
+        }
+
+        &:hover {
+            background-color: var(--theme-bg-accent-hover);
+        }
+
+        &:active {
+            background-color: var(--theme-bg-accent-active);
+        }
+
+
+    }
+
+    &--secondary {
+        background-color: var(--theme-bg-neutral-default);
+        color: var(--theme-text-primary);
+        border: $btn-border;
+
+        .btn__icon {
+            @include colored-icon(var(--theme-text-secondary));
+        }
+
+
+        .btn__text {
+            color: var(--theme-text-secondary);
+        }
+
+        &:hover {
+            background-color: transparent;
+
+            .btn__text {
+                color: var(--theme-text-primary)
+            }
+
+            .btn__icon {
+                @include colored-icon(var(--theme-text-primary));
+            }
+        }
+
+        &:active {
+            background-color: var(--theme-bg-neutral-active);
+        }
+    }
+
+    &--tertiary {
+        background-color: transparent;
+        color: var(--theme-text-primary);
+
+        .btn__icon {
+            @include colored-icon(var(--theme-text-secondary));
+        }
+
+        .btn__text {
+            color: var(--theme-text-secondary)
+        }
+
+        &:hover {
+            border: $btn-border;
+
+            .btn__text {
+                color: var(--theme-text-primary)
+            }
+
+            .btn__icon {
+                @include colored-icon(var(--theme-text-primary));
+            }
+        }
+
+        &:active {
+            background-color: var(--theme-bg-neutral-active);
+        }
+    }
+
+    &--disabled {
+        color: var(--theme-border-neutral);
+        border: $btn-border;
+        pointer-events: none;
+
+        .btn__icon {
+            @include colored-icon(var(--theme-border-neutral));
+        }
+
+        .btn__text {
+            color: var(--theme-border-neutral)
+        }
+    }
+
+
+}

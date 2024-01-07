@@ -1,0 +1,120 @@
+$transition: all 75ms ease-out;
+
+.checkbox {
+    position: relative;
+    margin-bottom: 2rem;
+
+    &__input {
+        display: none;
+    }
+
+    &__label {
+        @include apply-font-styles($ui, medium, bold);
+        cursor: pointer;
+        position: relative;
+        padding-left: 2.4rem;
+        margin-top: -2rem;
+        font-family: 'DMSans';
+    }
+
+    &__button {
+        height: 2rem;
+        width: 2rem;
+        border: .15rem solid var(--theme-border-neutral);
+        background-color: var(--theme-bg-neutral-default);
+        border-radius: .4rem;
+        display: inline-block;
+        position: absolute;
+        left: -.4rem;
+
+        &::before {
+            content: "";
+            display: block;
+            border-radius: .4rem;
+            height: 2rem;
+            width: 2rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            mask-image: url('./assets/icons/done.svg');
+            background-color: var(--theme-text-inverse);
+            z-index: 2;
+            opacity: 0;
+            transition: $transition;
+        }
+
+        &::after {
+            content: "";
+            display: block;
+            border-radius: .4rem;
+            height: 2rem;
+            width: 2rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: var(--theme-bg-accent-default);
+            z-index: 1;
+            opacity: 0;
+            transition: $transition;
+        }
+    }
+
+    &__input:hover~&__label &__button {
+        border: .15rem solid var(--theme-border-accent);
+    }
+
+    &__input:checked:hover~&__label &__button::after {
+        background-color: var(--theme-bg-accent-hover);
+    }
+
+    &__input:active~&__label &__button {
+        border: .15rem solid var(--theme-border-accent);
+        background-color: var(--theme-bg-neutral-active);
+    }
+
+    &__input:checked:active~&__label &__button::after {
+        background-color: var(--theme-bg-accent-active);
+        border: .15rem solid var(--theme-border-accent);
+    }
+
+    &__input:checked~&__label &__button::after,
+    &__input:checked~&__label &__button::before {
+        opacity: 1;
+    }
+
+    &__helper-text {
+        @include apply-font-styles($paragraph, small, regular);
+        color: var(--theme-text-secondary);
+        display: block;
+        position: absolute;
+        left: 2.4rem;
+    }
+
+    &__input:disabled:checked~&__label &__button::before {
+        // border: .15rem solid map-get($light-theme, border, app);
+        background-color: var(--theme-text-disabled);
+        opacity: 1;
+    }
+
+    &__input:disabled:checked~&__label,
+    &__input:disabled:checked~&__helper-text,
+    &__input:disabled:checked~&__label &__button::after {
+        // border: .15rem solid map-get($light-theme, border, app);
+        background-color: transparent;
+        opacity: 1;
+        color: var(--theme-text-disabled);
+    }
+
+    &__input:disabled~&__label,
+    &__input:disabled~&__helper-text,
+    &__input:disabled~&__label &__button::after {
+        // border: .15rem solid map-get($light-theme, border, app);
+        background-color: transparent;
+        opacity: 1;
+        color: var(--theme-text-disabled);
+    }
+
+
+}

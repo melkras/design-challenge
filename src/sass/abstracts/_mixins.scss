@@ -1,0 +1,30 @@
+@mixin apply-font-styles($map, $size, $weight: null) {
+    $styles: map-get(map-get($map, $size), $weight);
+
+    @if $styles {
+        font-size: map-get($styles, font-size);
+        font-weight: map-get($styles, font-weight);
+        line-height: map-get($styles, line-height);
+        text-transform: map-get($styles, text-transform);
+        letter-spacing: map-get($styles, letter-spacing);
+    }
+
+    @else {
+        // If no weight specified, use the regular style
+        $regularStyles: map-get($map, $size);
+        font-size: map-get($regularStyles, font-size);
+        font-weight: map-get($regularStyles, font-weight);
+        line-height: map-get($regularStyles, line-height);
+        text-transform: map-get($regularStyles, text-transform);
+        letter-spacing: map-get($regularStyles, letter-spacing);
+    }
+}
+
+@mixin colored-icon($color) {
+    width: 2rem;
+    height: 2rem;
+    background-color: $color;
+    mask-repeat: no-repeat;
+    mask-position: center center;
+    mask-size: cover;
+}

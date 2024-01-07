@@ -1,0 +1,31 @@
+.top-bar {
+    background-color: var(--theme-bg-neutral-default);
+    padding: 1.6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: .1rem solid var(--theme-border-app);
+
+    &__logo-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: .8rem;
+    }
+
+    &__logo {
+        mask-image: url('./assets/graphics/logo.svg');
+        mask-size: contain;
+        background-color: var(--theme-text-primary);
+        background-size: contain;
+        height: 3.2rem;
+        width: 3.2rem;
+    }
+
+    &__logo-text {
+        @include apply-font-styles($title, medium);
+        color: var(--theme-text-primary);
+
+    }
+
+}

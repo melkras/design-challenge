@@ -1,0 +1,54 @@
+.checkbox-group {
+    &__title-container {
+        display: flex;
+        flex-direction: column;
+        gap: .4rem;
+    }
+
+    &__label {
+        @include apply-font-styles($ui, medium, bold);
+        color: var(--theme-text-primary);
+        display: block;
+
+        .required {
+            color: var(--theme-text-error);
+        }
+    }
+
+    &__info-label {
+        @include apply-font-styles($ui, small, regular);
+        color: var(--theme-text-secondary);
+        display: block;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: .8rem;
+        margin: 1.5rem 0rem .8rem .4rem
+    }
+
+    &__error-text {
+        @include apply-font-styles($ui, small, regular);
+        color: var(--theme-text-error);
+        display: flex;
+        gap: .4rem;
+        align-items: center;
+        position: relative;
+    }
+
+    &__error-icon {
+        background-color: var(--theme-text-error);
+        height: 2rem;
+        width: 2rem;
+        mask-image: url('./assets/icons/close.svg');
+    }
+
+    .disabled {
+        color: var(--theme-text-disabled);
+    }
+
+    .invalid {
+        color: var(--theme-text-error);
+    }
+}

@@ -1,0 +1,91 @@
+$input-border-radius: .4rem;
+
+.input {
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+    width: 100%;
+
+    input[type="password"] {
+        font-size: 2.5rem;
+        height: 3.4rem;
+    }
+
+    &.invalid {
+        color: var(--theme-text-error);
+
+        >.input__input-value,
+        >.input__input-value:hover,
+        >.input__input-value:active,
+        >.input__input-value:focus {
+            border: .15rem solid var(--theme-border-error);
+        }
+
+        >.input__label,
+        >.input__helper-text {
+            color: var(--theme-text-error);
+        }
+    }
+
+    &.disabled {
+
+        >.input__label,
+        >.input__helper-text {
+            color: var(--theme-text-disabled);
+        }
+    }
+
+
+    &__label {
+        @include apply-font-styles($ui, medium, bold);
+        color: var(--theme-text-primary);
+    }
+
+    &__input-value {
+        @include apply-font-styles($ui, medium, regular);
+        color: var(--theme-text-primary);
+        background-color: var(--theme-bg-neutral-default);
+        padding: .6rem .8rem;
+        border-radius: $input-border-radius;
+        border: .15rem solid var(--theme-border-neutral);
+
+        &:hover,
+        &:active {
+            border: .15rem solid var(--theme-border-accent);
+        }
+
+        &:focus {
+            outline: none;
+            border: .15rem solid var(--theme-border-accent);
+        }
+
+        &:disabled,
+        &:hover:disabled,
+        &:active:disabled {
+            border: .15rem solid var(--theme-border-app);
+            color: var(--theme-text-disabled);
+            background-color: var(--theme-bg-app);
+        }
+
+        &:focus:disabled {
+            outline: none;
+            border: .15rem solid var(--theme-border-app);
+        }
+
+    }
+
+    &__helper-text {
+        @include apply-font-styles($ui, small, regular);
+        color: var(--theme-text-secondary);
+        display: flex;
+        align-items: center;
+        gap: .4rem;
+    }
+
+    &__error-icon {
+        background-color: var(--theme-text-error);
+        height: 2rem;
+        width: 2rem;
+        mask-image: url('./assets/icons/close.svg');
+    }
+}

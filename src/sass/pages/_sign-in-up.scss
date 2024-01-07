@@ -1,0 +1,30 @@
+.signup {
+    width: 51.2rem;
+}
+
+.intro {
+    .intro__title {
+        @include apply-font-styles($display, medium);
+        margin-bottom: .8rem;
+    }
+
+    .intro__subtitle {
+        @include apply-font-styles($paragraph, medium, regular);
+        color: var(--theme-text-secondary);
+    }
+}
+
+.actions {
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+
+    &__spacer {
+        @include apply-font-styles($ui, small, regular);
+        align-self: center;
+    }
+}
+
+.reverse-order {
+    flex-direction: column-reverse;
+}

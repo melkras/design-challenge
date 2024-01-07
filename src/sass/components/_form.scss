@@ -1,0 +1,16 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+
+    &__form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+
+        &__row {
+            display: flex;
+            gap: .8rem;
+        }
+    }
+}
