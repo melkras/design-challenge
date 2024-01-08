@@ -1,4 +1,5 @@
 import { memo } from "react";
+import { isDisabled } from "../../utils";
 
 export type TCheckbox = {
     name: string;
@@ -11,7 +12,7 @@ export type TCheckbox = {
 export default memo(function Checkbox(props: TCheckbox) {
     const { name, checked, disabled, onChange, label, helpLabel, ...rest } = props;
     return (
-        <div className="checkbox" >
+        <div className={`checkbox ${isDisabled(disabled)}`}>
             <input
                 className="checkbox__input"
                 name={name}
