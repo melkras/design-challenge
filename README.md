@@ -1,7 +1,8 @@
 
 # Design challenge
 
-This is mini-project which purpose was to use a figma desgin and convert it to re-usable design system and react components.
+This is mini-project which purpose was to use a figma desgin and convert it to a re-usable design system and react components.  
+The project is documented in StoryBook.
 
 
 ## Tech Stack
@@ -11,7 +12,37 @@ This is mini-project which purpose was to use a figma desgin and convert it to r
 
 
 
+## How to install
 
+Inside the project root folder
+
+```bash
+  npm install
+
+```
+## How to run on dev
+
+To run project on dev
+
+```bash
+  npm run start
+```
+
+To run sass on dev
+
+```bash
+  npm run sass:watch
+```
+    
+
+## How to run StoryBook
+
+Run StoryBook on dev server port 6006
+
+```bash
+  npm run storybook
+```
+    
 
 ## Project file structure
 src  
@@ -83,37 +114,17 @@ src
 |-- types.d.ts  
 |-- vite-env.d.ts
 
-## How to install
 
-Inside the project root folder
+## Style guide
 
-```bash
-  npm install
+The following .scss files have all the style logic:  
+**Important information is commented within code**
 
-```
-## How to run on dev
-
-To run project on dev
-
-```bash
-  npm run start
-```
-
-To run sass on dev
-
-```bash
-  npm run sass:watch
-```
-    
-
-## How to run StoryBook
-
-Run StoryBook on dev server port 6006
-
-```bash
-  npm run storybook
-```
-    
+**abstracts/_mixins.scss** - helper functions.  
+**base/_base.scss** - base html setup and "clearing".  
+**base/_colors.scs** - color variables.  
+**base/_themes.scss** - light and dark theme mode variables.  
+**base/_typography.scss** - typography variables and classes.
 ## Author
 
 - [@melkras](https://www.github.com/melkras)

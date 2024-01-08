@@ -16,6 +16,8 @@
     --red-40: #E82D5A;
     --red-50: #E82D5A;
 
+    // Default theme variables
+    // they are overwritten by base/_themes.scss when switching themes.
     --theme-bg-app: var(--neutral-10);
 
     --theme-bg-accent-default: var(--blue-50);

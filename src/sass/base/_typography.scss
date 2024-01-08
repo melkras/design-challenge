@@ -18,7 +18,11 @@ h4 {
     color: var(--theme-text-primary);
 }
 
-// DISPLAY FONT STYLES
+// Nested font styles
+// Can be easily accessed inside scss with mixin apply-font-styles.
+// Example usage: @include apply-font-styles($ui, medium, bold);
+
+// Display font styles
 $display: (
     large: (font-size: 6.4rem,
         font-weight: 400,
@@ -33,7 +37,7 @@ $display: (
         line-height: 3.2rem,
     )
 );
-// TITLE FONT STYLES
+// Title font styles
 $title: (
     large: (font-size: 1.8rem,
         font-weight: 700,
@@ -53,7 +57,7 @@ $title: (
         text-transform: uppercase,
         letter-spacing: .04em)
 );
-// UI FONT STYLES
+// Ui font styles
 $ui: (
     medium:(regular:(font-size: 1.4rem,
             font-weight: 400,
@@ -72,7 +76,7 @@ $ui: (
             line-height: 1.6rem,
         ))
 );
-// PARAGRAPH FONT STYLES
+// Paragraph font styles
 $paragraph: (
     medium:(regular:(font-size: 1.4rem,
             font-weight: 400,
@@ -92,6 +96,7 @@ $paragraph: (
         ))
 );
 
+// Font classes for directl use in element classList
 .display-large {
     @include apply-font-styles($display, large)
 }

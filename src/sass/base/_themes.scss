@@ -1,3 +1,9 @@
+// Theme will trigger when the html body gets 
+// the "data-theme-mode" attribute value, "light" or "dark".
+// In the current project it is handled by React components 
+// TopBar.tsx inside src\components\top-bar.tsx.
+
+// Light mode
 [data-theme-mode="light"] {
     --theme-bg-app: var(--neutral-10);
 
@@ -31,6 +37,7 @@
             rgba(0 0 0 / 0%))
 }
 
+// Dark mode
 [data-theme-mode="dark"] {
     --theme-bg-app: var(--neutral-90);
 
