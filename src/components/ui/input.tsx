@@ -1,3 +1,7 @@
+// Checkbox component.
+// Relevant styles can be found in: src\sass\components\_input.scss
+// Im using 3 utils functions ( getStateClassName, isDisabled, isInvalid ) to keep the code clean.
+
 import React, { memo } from "react";
 import { getStateClassName, isDisabled, isInvalid } from "../../utils";
 

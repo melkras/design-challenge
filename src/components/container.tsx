@@ -1,3 +1,6 @@
+// Container component.
+// Relevant styles can be found in: src\sass\layout\_container.scss
+
 type TContainer = {
   className?: string;
 };

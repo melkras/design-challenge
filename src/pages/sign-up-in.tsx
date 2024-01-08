@@ -1,3 +1,9 @@
+// SignUpIn component.
+// This component renders the form, it allows to fill the signin form & singup form.
+// It also validates the fields.
+// Relevant styles can be found in: src\sass\pages\_sign-in-up.scss
+// Im using a custom hook ( useFormState ) to keep the form state logic separate from the presentational components.
+
 import Container from "../components/container";
 import Checkbox from "../components/ui/checkbox";
 import CheckboxGroup from "../components/ui/checkbox-group";

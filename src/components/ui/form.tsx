@@ -1,3 +1,6 @@
+// Form component.
+// Relevant styles can be found in: src\sass\components\_form.scss
+
 import React, { PropsWithChildren } from 'react';
 type FormGroup = {
 

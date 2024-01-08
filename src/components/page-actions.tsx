@@ -1,3 +1,6 @@
+// PageActions component.
+// Relevant styles can be found in: src\sass\pages\_sign-in-up.scss
+
 import { memo } from 'react';
 import Button from './ui/button';
 type TPageActions = {

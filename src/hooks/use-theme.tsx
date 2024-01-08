@@ -1,3 +1,9 @@
+// Theme provider + useTheme hook.
+// This component allows to switch themes,
+// preserve the state of the theme,
+// pass the theme variable and its toggle function 
+// accross the entire app.
+
 import { createContext, useContext, useState, FC, PropsWithChildren, useEffect } from "react";
 
 interface ThemeContextProps {
@@ -17,7 +23,7 @@ export const useTheme = (): ThemeContextProps => {
 
 export const ThemeProvider: FC<PropsWithChildren> = ({ children }) => {
     const [theme, setTheme] = useState('light');
-
+    // Set theme to localState + react state
     const themeSetter = (mode: string) => {
         setTheme(mode);
         document.body.setAttribute("data-theme-mode", mode);

@@ -1,3 +1,6 @@
+// PageTitle component.
+// Relevant styles can be found in: src\sass\pages\_sign-in-up.scss
+
 export default function PageTitle() {
     return (
         <div className="intro">

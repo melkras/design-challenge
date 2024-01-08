@@ -1,16 +1,12 @@
+// TopBar component.
+// Relevant styles can be found in: src\sass\layout\_top-bar.scss
+// Im using 2 utils functions ( capitalize, switchToOpposite ) to keep the code clean
+
 import Button from "./ui/button";
 import lightMode from '../assets/icons/light-mode.svg';
 import darkMode from '../assets/icons/dark-mode.svg';
 import { useTheme } from "../hooks/use-theme";
-
-const capitalize = (str: string) => {
-    const capitalized = str.charAt(0).toUpperCase() + str.slice(1);
-    return capitalized;
-};
-const switchToOpposite = (theme: string) => {
-    if (theme === 'dark') return 'light';
-    return 'dark';
-};
+import { capitalize, switchToOpposite } from "../utils";
 
 export default function TopBar() {
     const { theme, toggleTheme } = useTheme();
