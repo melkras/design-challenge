@@ -26,13 +26,17 @@ export default function SignUpIn() {
                                 label="First name"
                                 invalid={errors.name ? true : false}
                                 helpLabel={errors?.name?.message}
-                                {...register("name")}
+                                name="name"
+                                inputRef={{ ...register("name") }.ref}
+                                onChange={{ ...register("name") }.onChange}
                             />
                             <Input
                                 label="Last name"
                                 invalid={errors.surName ? true : false}
                                 helpLabel={errors?.surName?.message}
-                                {...register("surName")}
+                                name="surName"
+                                inputRef={{ ...register("surName") }.ref}
+                                onChange={{ ...register("surName") }.onChange}
                             />
                         </div>
                     }
@@ -41,14 +45,18 @@ export default function SignUpIn() {
                         type="email"
                         invalid={errors.email ? true : false}
                         helpLabel={errors?.email?.message}
-                        {...register("email")}
+                        name="email"
+                        inputRef={{ ...register("email") }.ref}
+                        onChange={{ ...register("email") }.onChange}
                     />
                     <Input
                         label="Password"
                         type="password"
                         invalid={errors.password ? true : false}
                         helpLabel={errors?.password?.message}
-                        {...register("password")}
+                        name="password"
+                        inputRef={{ ...register("password") }.ref}
+                        onChange={{ ...register("password") }.onChange}
                     />
                 </FormGroup>
                 <FormGroup>
@@ -60,11 +68,15 @@ export default function SignUpIn() {
                     >
                         <Checkbox
                             label={'Send me useless newsletters please'}
-                            {...register("newsletter")}
+                            name="newsletter"
+                            inputRef={{ ...register("newsletter") }.ref}
+                            onChange={{ ...register("newsletter") }.onChange}
                         />
                         <Checkbox
                             label={'I agree with terms and conditions'}
-                            {...register("terms")}
+                            name="terms"
+                            inputRef={{ ...register("terms") }.ref}
+                            onChange={{ ...register("terms") }.onChange}
                         />
                     </CheckboxGroup>
                 </FormGroup>

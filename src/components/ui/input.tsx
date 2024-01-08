@@ -17,11 +17,11 @@ export type TInput = {
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     invalid?: boolean;
     disabled?: boolean;
-    ref?: React.Ref<HTMLInputElement>;
+    inputRef?: React.Ref<HTMLInputElement>;
 };
 
 const Input: React.FC<TInput> =
-    React.forwardRef(({ state, label, showLabel, helpLabel, showHelp, name, type = 'text', value, onChange, invalid, disabled, ...rest }, ref) => {
+    ({ state, label, showLabel, helpLabel, showHelp, name, type = 'text', value, onChange, invalid, disabled, inputRef, ...rest }) => {
         return (
             <div className={`input ${getStateClassName(state, 'input')} ${isDisabled(disabled)} ${isInvalid(invalid)}`}>
                 {showLabel !== false &&
@@ -40,7 +40,7 @@ const Input: React.FC<TInput> =
                     value={value}
                     onChange={onChange}
                     {...rest}
-                    ref={ref}
+                    ref={inputRef}
                 />
                 {showHelp !== false &&
                     <div className='input__helper-text'>
@@ -53,5 +53,5 @@ const Input: React.FC<TInput> =
             </div>
         );
 
-    });
+    };
 export default memo(Input);
