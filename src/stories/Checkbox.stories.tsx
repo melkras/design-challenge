@@ -1,47 +1,56 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Checkbox, { TCheckbox } from '../components/ui/checkbox';
+import { default as CheckB, TCheckbox } from '../components/ui/checkbox';
 import { useArgs } from '@storybook/preview-api';
 
 const meta: Meta = {
   title: 'Example/Checkbox',
-  component: Checkbox,
+  component: CheckB,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
   argTypes: {
     state: {
-      description: 'default, hover, active',
       defaultValue: '',
     },
     label: {
-      description: 'string',
       defaultValue: '',
     },
     showHelp: {
-      description: 'boolean',
       defaultValue: false,
     },
     helpLabel: {
-      description: 'string',
       defaultValue: true,
     },
     disabled: {
-      description: 'boolean',
       defaultValue: false,
     },
     checked: {
-      description: 'boolean',
       defaultValue: false,
     },
+    ref: {
+      table: {
+        disable: true,
+      }
+    },
+    onChange: {
+      table: {
+        disable: true,
+      }
+    },
+    name: {
+      table: {
+        disable: true,
+      }
+    },
   },
-};
+} satisfies Meta<typeof CheckB>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = (args: TCheckbox) => {
+export const Checkbox: Story = (args: TCheckbox) => {
   const [{ checked, showHelp }, updateArgs] = useArgs();
 
   const handleCheckboxChange = () => {
@@ -49,7 +58,7 @@ export const Primary: Story = (args: TCheckbox) => {
   };
 
   return (
-    <Checkbox
+    <CheckB
       {...args}
       checked={checked}
       showHelp={showHelp}
@@ -57,8 +66,7 @@ export const Primary: Story = (args: TCheckbox) => {
     />
   );
 };
-
-Primary.args = {
+Checkbox.args = {
   state: 'default',
   label: 'Label',
   helpLabel: 'Contextual help message',

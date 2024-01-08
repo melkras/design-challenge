@@ -57,11 +57,10 @@ export const Group: Story = {
     disabled: false,
     invalid: true,
     required: true,
-    children: [
-      <Checkbox name="checbox1" helpLabel="Contextual help message" label="Label" onChange={console.log} />,
-      <Checkbox name="checbox2" helpLabel="Contextual help message" label="Label" onChange={console.log} />,
-    ],
+    children:
+      [
+        <Checkbox name="checbox1" helpLabel="Contextual help message" label="Label" onChange={console.log} />,
+        <Checkbox name="checbox2" helpLabel="Contextual help message" label="Label" onChange={console.log} />,
+      ],
   }
 };
-
-
