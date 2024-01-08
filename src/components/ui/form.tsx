@@ -14,9 +14,9 @@ type TForm = {
 };
 
 const Form: React.FC<TForm & PropsWithChildren> = (props) => {
-    const { children, onSubmit } = props;
+    const { children, onSubmit, ...rest } = props;
     return (
-        <form className='form' onSubmit={onSubmit}>
+        <form className='form' onSubmit={onSubmit} {...rest}>
             {children}
         </form>
     );

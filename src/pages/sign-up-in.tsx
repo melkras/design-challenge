@@ -1,43 +1,60 @@
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import Container from "../components/container";
 import Checkbox from "../components/ui/checkbox";
 import CheckboxGroup from "../components/ui/checkbox-group";
 import Input from "../components/ui/input";
 import Form, { FormGroup } from "../components/ui/form";
 import Button from "../components/ui/button";
+import { useForm, SubmitHandler } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 export default function SignUpIn() {
     const [signup, setSignup] = useState(false);
-    const [values, setValues] = useState({
-        checkbox1: false,
-        checkbox2: false,
-        name: '',
-        surname: '',
-        email: '',
-        password: '',
-        newsletter: undefined,
-        terms: undefined,
+
+    const SignUpSchema = z.object({
+        ...(signup && {
+            name: z
+                .string()
+                .min(3, { message: 'Name must be at least 3 characters' })
+                .max(20, { message: 'Name must be up to 20 characters' }),
+            surName: z
+                .string()
+                .min(3, { message: 'Surname must be at least 3 characters' })
+                .max(20, { message: 'Surname must be up to 20 characters' }),
+        }),
+        email: z.string().email(),
+        password: z
+            .string()
+            .min(6, { message: 'Password must be atleast 6 characters' }),
+        newsletter: z.boolean().optional(),
+        terms: z.boolean().refine((data) => data, {
+            message: "You must accept the terms!",
+        }),
     });
-    const checkboxHandler = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-        setValues(prev => {
-            return {
-                ...prev,
-                [e.target.name]: e.target.checked
-            };
-        });
-    }, []);
-    const inputHandler = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-        setValues(prev => {
-            return {
-                ...prev,
-                [e.target.name]: e.target.value
-            };
-        });
-    }, []);
-    const signupButtonHandler = () => {
-        setSignup(true);
+
+    type SignUpSchemaType = z.infer<typeof SignUpSchema>;
+
+    const {
+        register,
+        handleSubmit,
+        formState: { errors }
+
+    } = useForm<SignUpSchemaType>({
+        mode: "onBlur",
+        resolver: zodResolver(SignUpSchema)
+
+    });
+    const onSubmit: SubmitHandler<SignUpSchemaType> = (data) => {
+        console.log(data);
     };
-    const signinButtonHandler = () => {
+    const signupButtonHandler = (e: React.SyntheticEvent) => {
+        if (!signup) { e.preventDefault(); }
+        setSignup(true);
+
+    };
+    const signinButtonHandler = (e: React.SyntheticEvent) => {
+        if (signup) { e.preventDefault(); }
         setSignup(false);
     };
     return (
@@ -46,67 +63,53 @@ export default function SignUpIn() {
                 <h1 className="intro__title">Welcome to componento!</h1>
                 <p className="intro__subtitle">Give us your credentials and we shall let you pass.</p>
             </div>
-            <Form onSubmit={(e) => e.preventDefault()}>
+            <Form onSubmit={handleSubmit(onSubmit)}>
                 <FormGroup>
                     {signup &&
                         <div className="form__form-group__row">
                             <Input
                                 label="First name"
-                                name="name"
-                                type="text"
-                                value={values.name}
-                                onChange={inputHandler}
+                                invalid={errors.name ? true : false}
+                                helpLabel={errors?.name?.message}
+                                {...register("name")}
                             />
                             <Input
                                 label="Last name"
-                                name="surname"
-                                type="text"
-                                value={values.surname}
-                                onChange={inputHandler}
-                                showHelp={true}
+                                invalid={errors.surName ? true : false}
+                                helpLabel={errors?.surName?.message}
+                                {...register("surName")}
                             />
                         </div>
                     }
                     <Input
                         label="Email"
-                        name="email"
                         type="email"
-                        value={values.email}
-                        onChange={inputHandler}
-                        helpLabel={'Top-level domain is either missing or incorrect'}
-                        showHelp={true}
-                        invalid={true}
+                        invalid={errors.email ? true : false}
+                        helpLabel={errors?.email?.message}
+                        {...register("email")}
                     />
                     <Input
                         label="Password"
-                        name="password"
                         type="password"
-                        value={values.password}
-                        onChange={inputHandler}
-                        helpLabel={'Create a strong password with a mix of letters, numbers and symbols'}
-                        showHelp={true}
+                        invalid={errors.password ? true : false}
+                        helpLabel={errors?.password?.message}
+                        {...register("password")}
                     />
                 </FormGroup>
                 <FormGroup>
                     <CheckboxGroup
                         label={'Additional'}
                         infoLabel={'Group information text'}
-                        invalid={true}
-                        errorText={"You need to agree with terms and conditions"}
+                        invalid={errors.terms ? true : false}
+                        errorText={errors?.terms?.message}
                     >
                         <Checkbox
-                            name={'newsletter'}
-                            checked={values.newsletter || false}
-                            onChange={checkboxHandler}
                             label={'Send me useless newsletters please'}
-                            helpLabel={'Our marketers will thank you, every day'}
+                            {...register("newsletter")}
                         />
                         <Checkbox
-                            name={'terms'}
-                            checked={values.terms || false}
-                            onChange={checkboxHandler}
                             label={'I agree with terms and conditions'}
-                            helpLabel={'Agree with everything'}
+                            {...register("terms")}
                         />
                     </CheckboxGroup>
                 </FormGroup>
