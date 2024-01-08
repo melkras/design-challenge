@@ -56,7 +56,6 @@ export default function SignUpIn() {
                                 type="text"
                                 value={values.name}
                                 onChange={inputHandler}
-                            // disabled={false}
                             />
                             <Input
                                 label="Last name"
@@ -64,9 +63,7 @@ export default function SignUpIn() {
                                 type="text"
                                 value={values.surname}
                                 onChange={inputHandler}
-                                // disabled={false}
                                 showHelp={true}
-                            // invalid={true}
                             />
                         </div>
                     }
@@ -77,7 +74,6 @@ export default function SignUpIn() {
                         value={values.email}
                         onChange={inputHandler}
                         helpLabel={'Top-level domain is either missing or incorrect'}
-                        // disabled={false}
                         showHelp={true}
                         invalid={true}
                     />
@@ -88,9 +84,7 @@ export default function SignUpIn() {
                         value={values.password}
                         onChange={inputHandler}
                         helpLabel={'Create a strong password with a mix of letters, numbers and symbols'}
-                        // disabled={false}
                         showHelp={true}
-                    // invalid={true}
                     />
                 </FormGroup>
                 <FormGroup>
@@ -102,14 +96,14 @@ export default function SignUpIn() {
                     >
                         <Checkbox
                             name={'newsletter'}
-                            checked={values.newsletter}
+                            checked={values.newsletter || false}
                             onChange={checkboxHandler}
                             label={'Send me useless newsletters please'}
                             helpLabel={'Our marketers will thank you, every day'}
                         />
                         <Checkbox
                             name={'terms'}
-                            checked={values.terms}
+                            checked={values.terms || false}
                             onChange={checkboxHandler}
                             label={'I agree with terms and conditions'}
                             helpLabel={'Agree with everything'}

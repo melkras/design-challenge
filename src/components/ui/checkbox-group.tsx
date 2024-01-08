@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { TCheckbox } from "./checkbox";
 import { isDisabled, isInvalid } from "../../utils";
 type TCheckboxGroupProps = {
@@ -11,7 +11,7 @@ type TCheckboxGroupProps = {
     invalid?: boolean;
 };
 
-export default function CheckboxGroup(props: TCheckboxGroupProps) {
+export default memo(function CheckboxGroup(props: TCheckboxGroupProps) {
     const { label, infoLabel, errorText, children, disabled, required, invalid } = props;
 
     const clonedChildren = React.Children.map(children, (child) => {
@@ -40,4 +40,4 @@ export default function CheckboxGroup(props: TCheckboxGroupProps) {
             <div className={`checkbox-group__content`}>{clonedChildren}</div>
         </div>
     );
-}
+});

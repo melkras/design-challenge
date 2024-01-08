@@ -1,4 +1,4 @@
-import { SVGProps } from "react";
+import { SVGProps, memo } from "react";
 import { getStateClassName } from "../../utils";
 
 type TButton = {
@@ -13,7 +13,7 @@ type TButton = {
     label: string;
     onClick?: (e: React.SyntheticEvent) => void;
 };
-export default function Button(props: TButton) {
+export default memo(function Button(props: TButton) {
     const { priority, showIconStart, iconStart, showIconEnd, iconEnd, showLabel, label, disabled, onClick, state } = props;
 
     const getClassName = () => {
@@ -49,4 +49,4 @@ export default function Button(props: TButton) {
             {renderIcon(showIconEnd, iconEnd)}
         </button>
     );
-}
+});
