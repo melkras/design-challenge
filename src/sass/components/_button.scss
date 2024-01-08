@@ -18,88 +18,20 @@ $btn-border: .15rem solid var(--theme-border-app);
         gap: .8rem;
     }
 
-    &--primary {
-        background-color: var(--theme-bg-accent-default);
-        color: var(--theme-text-inverse);
-
-
-        .btn__icon {
-            @include colored-icon(#fff);
-        }
-
-        .btn__text {
-            color: var(--theme-text-inverse);
-        }
-
-        &:hover {
-            background-color: var(--theme-bg-accent-hover);
-        }
-
-        &:active {
-            background-color: var(--theme-bg-accent-active);
-        }
-
-
+    &__primary {
+        @include button-primary-styles();
+        @include button-primary-states()
     }
 
-    &--secondary {
-        background-color: var(--theme-bg-neutral-default);
-        color: var(--theme-text-primary);
-        border: $btn-border;
 
-        .btn__icon {
-            @include colored-icon(var(--theme-text-secondary));
-        }
-
-
-        .btn__text {
-            color: var(--theme-text-secondary);
-        }
-
-        &:hover {
-            background-color: transparent;
-
-            .btn__text {
-                color: var(--theme-text-primary)
-            }
-
-            .btn__icon {
-                @include colored-icon(var(--theme-text-primary));
-            }
-        }
-
-        &:active {
-            background-color: var(--theme-bg-neutral-active);
-        }
+    &__secondary {
+        @include button-seondary-styles();
+        @include button-secondary-states()
     }
 
-    &--tertiary {
-        background-color: transparent;
-        color: var(--theme-text-primary);
-
-        .btn__icon {
-            @include colored-icon(var(--theme-text-secondary));
-        }
-
-        .btn__text {
-            color: var(--theme-text-secondary)
-        }
-
-        &:hover {
-            border: $btn-border;
-
-            .btn__text {
-                color: var(--theme-text-primary)
-            }
-
-            .btn__icon {
-                @include colored-icon(var(--theme-text-primary));
-            }
-        }
-
-        &:active {
-            background-color: var(--theme-bg-neutral-active);
-        }
+    &__tertiary {
+        @include button-tertiary-styles();
+        @include button-tertiary-states()
     }
 
     &--disabled {
@@ -116,5 +48,43 @@ $btn-border: .15rem solid var(--theme-border-app);
         }
     }
 
+    &__primary--hover {
+        background-color: var(--theme-bg-accent-hover);
+    }
 
+    &__primary--active {
+        background-color: var(--theme-bg-accent-active);
+    }
+
+    &__secondary--hover {
+        background-color: transparent;
+
+        .btn__text {
+            color: var(--theme-text-primary)
+        }
+
+        .btn__icon {
+            @include colored-icon(var(--theme-text-primary));
+        }
+    }
+
+    &__secondary--active {
+        background-color: var(--theme-bg-neutral-active);
+    }
+
+    &__tertiary--hover {
+        border: $btn-border;
+
+        .btn__text {
+            color: var(--theme-text-primary)
+        }
+
+        .btn__icon {
+            @include colored-icon(var(--theme-text-primary));
+        }
+    }
+
+    &__tertiary--active {
+        background-color: var(--theme-bg-neutral-active);
+    }
 }

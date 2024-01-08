@@ -1,6 +1,8 @@
 import { SVGProps } from "react";
+import { getStateClassName } from "../../utils";
 
 type TButton = {
+    state?: 'default' | 'hover' | 'active',
     priority: 'primary' | 'secondary' | 'tertiary';
     showLabel?: boolean;
     showIconStart?: boolean;
@@ -12,18 +14,18 @@ type TButton = {
     onClick?: (e: React.SyntheticEvent) => void;
 };
 export default function Button(props: TButton) {
-    const { priority, showIconStart, iconStart, showIconEnd, iconEnd, showLabel, label, disabled, onClick } = props;
+    const { priority, showIconStart, iconStart, showIconEnd, iconEnd, showLabel, label, disabled, onClick, state } = props;
 
     const getClassName = () => {
         switch (priority) {
             case 'primary':
-                return 'btn--primary';
+                return 'btn__primary';
             case 'secondary':
-                return 'btn--secondary';
+                return 'btn__secondary';
             case 'tertiary':
-                return 'btn--tertiary';
+                return 'btn__tertiary';
             default:
-                return 'btn--secondary';
+                return 'btn__secondary';
         }
     };
 
@@ -39,7 +41,7 @@ export default function Button(props: TButton) {
     };
 
     return (
-        <button className={`btn ${disabled === true ? 'btn--disabled' : getClassName()}`} onClick={onClick}>
+        <button className={`btn ${getStateClassName(state, `btn__${priority}`)} ${disabled === true ? 'btn--disabled' : getClassName()}`} onClick={onClick}>
             {renderIcon(showIconStart, iconStart)}
             {showLabel !== false &&
                 <div className="btn__text">{label}</div>

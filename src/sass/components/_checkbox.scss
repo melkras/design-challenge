@@ -120,5 +120,12 @@ $transition: all 75ms ease-out;
         color: var(--theme-text-disabled);
     }
 
+    &__input--hover~&__label &__button {
+        border: .15rem solid var(--theme-border-accent);
+    }
 
+    &__input--active~&__label &__button {
+        border: .15rem solid var(--theme-border-accent);
+        background-color: var(--theme-bg-neutral-active);
+    }
 }

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
-
-import { Button } from './Button';
-
+import Button from '../components/ui/button';
+import doneIcon from '../assets/icons/done.svg';
+import downIcon from '../assets/icons/chevron-down.svg';
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
   title: 'Example/Button',
@@ -14,37 +14,78 @@ const meta = {
   tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
-    backgroundColor: { control: 'color' },
-  },
+    state: {
+      description: 'default, hover, active',
+      defaultValue: 'default'
+    },
+    priority: {
+      description: 'primary, sencodary, tertiary',
+      defaultValue: ''
+    },
+    label: {
+      description: 'string',
+      defaultValue: ''
+    },
+    showLabel: {
+      description: 'boolean',
+      defaultValue: 'true'
+    },
+    iconStart: {
+      description: 'Accepts .svg icons',
+      defaultValue: ''
+    },
+    iconEnd: {
+      description: 'Accepts .svg icons',
+      defaultValue: ''
+    },
+    onClick: {
+      description: 'Function which returns a ClickEvent',
+      defaultValue: '',
+    },
+    disabled: {
+      description: 'boolean',
+      defaultValue: false
+    },
+    showIconStart: {
+      description: 'boolean',
+      defaultValue: false
+    },
+    showIconEnd: {
+      description: 'boolean',
+      defaultValue: false
+    },
+
+  }
 } satisfies Meta<typeof Button>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Primary: Story = {
   args: {
-    primary: true,
-    label: 'Button',
+    state: 'default',
+    priority: 'primary',
+    label: 'Primary',
+    iconStart: doneIcon,
+    iconEnd: downIcon,
+    showIconStart: true,
+    showIconEnd: true,
+    showLabel: true,
+    disabled: false,
+    onClick: console.log
   },
 };
 
 export const Secondary: Story = {
   args: {
-    label: 'Button',
+    priority: 'secondary',
+    label: 'Secondary',
   },
 };
 
-export const Large: Story = {
+export const Tertiary: Story = {
   args: {
-    size: 'large',
-    label: 'Button',
-  },
-};
-
-export const Small: Story = {
-  args: {
-    size: 'small',
-    label: 'Button',
+    priority: 'tertiary',
+    label: 'Tertiary',
   },
 };

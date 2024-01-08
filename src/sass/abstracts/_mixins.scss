@@ -68,3 +68,89 @@ $breakpoint arguement choices:
         }
     }
 }
+
+@mixin button-primary-styles() {
+    background-color: var(--theme-bg-accent-default);
+    color: var(--theme-text-inverse);
+
+    .btn__icon {
+        @include colored-icon(#fff);
+    }
+
+    .btn__text {
+        color: var(--theme-text-inverse);
+    }
+}
+
+@mixin button-primary-states() {
+    &:hover {
+        background-color: var(--theme-bg-accent-hover);
+    }
+
+    &:active {
+        background-color: var(--theme-bg-accent-active);
+    }
+}
+
+@mixin button-seondary-styles() {
+    background-color: var(--theme-bg-neutral-default);
+    color: var(--theme-text-primary);
+    border: $btn-border;
+
+    .btn__icon {
+        @include colored-icon(var(--theme-text-secondary));
+    }
+
+    .btn__text {
+        color: var(--theme-text-secondary);
+    }
+}
+
+@mixin button-secondary-states() {
+    &:hover {
+        background-color: transparent;
+
+        .btn__text {
+            color: var(--theme-text-primary)
+        }
+
+        .btn__icon {
+            @include colored-icon(var(--theme-text-primary));
+        }
+    }
+
+    &:active {
+        background-color: var(--theme-bg-neutral-active);
+    }
+}
+
+@mixin button-tertiary-styles() {
+    background-color: transparent;
+    color: var(--theme-text-primary);
+
+    .btn__icon {
+        @include colored-icon(var(--theme-text-secondary));
+    }
+
+    .btn__text {
+        color: var(--theme-text-secondary)
+    }
+}
+
+@mixin button-tertiary-states() {
+    &:hover {
+        border: $btn-border;
+
+        .btn__text {
+            color: var(--theme-text-primary)
+        }
+
+        .btn__icon {
+            @include colored-icon(var(--theme-text-primary));
+        }
+    }
+
+    &:active {
+        background-color: var(--theme-bg-neutral-active);
+    }
+}

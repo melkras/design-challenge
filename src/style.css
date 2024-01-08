@@ -49,6 +49,23 @@ body {
   --blue-60: #2D17B5;
   --red-40: #E82D5A;
   --red-50: #E82D5A;
+  --theme-bg-app: var(--neutral-10);
+  --theme-bg-accent-default: var(--blue-50);
+  --theme-bg-accent-hover: var(--blue-40);
+  --theme-bg-accent-active: var(--blue-60);
+  --theme-bg-neutral-default: var(--neutral-0);
+  --theme-bg-neutral-hover: var(--neutral-10);
+  --theme-bg-neutral-active: var(--neutral-20);
+  --theme-border-app: var(--neutral-20);
+  --theme-border-accent: var(--blue-40);
+  --theme-border-neutral: var(--neutral-30);
+  --theme-border-error: var(--red-50);
+  --theme-text-accent: var(--blue-50);
+  --theme-text-primary: var(--neutral-90);
+  --theme-text-secondary: var(--neutral-60);
+  --theme-text-inverse: var(--neutral-0);
+  --theme-text-disabled: var(--neutral-50);
+  --theme-text-error: var(--red-50);
 }
 
 .u-center-text {
@@ -321,6 +338,9 @@ h4 {
   mask-image: url("./assets/icons/close.svg");
   mask-size: contain;
 }
+.input--active > .input__input-value, .input--hover > .input__input-value {
+  border: 0.15rem solid var(--theme-border-accent);
+}
 
 .btn {
   font-size: 1.4rem;
@@ -339,11 +359,11 @@ h4 {
   padding: 0rem 0.8rem;
   gap: 0.8rem;
 }
-.btn--primary {
+.btn__primary {
   background-color: var(--theme-bg-accent-default);
   color: var(--theme-text-inverse);
 }
-.btn--primary .btn__icon {
+.btn__primary .btn__icon {
   width: 2rem;
   height: 2rem;
   background-color: #fff;
@@ -351,21 +371,21 @@ h4 {
   mask-position: center center;
   mask-size: cover;
 }
-.btn--primary .btn__text {
+.btn__primary .btn__text {
   color: var(--theme-text-inverse);
 }
-.btn--primary:hover {
+.btn__primary:hover {
   background-color: var(--theme-bg-accent-hover);
 }
-.btn--primary:active {
+.btn__primary:active {
   background-color: var(--theme-bg-accent-active);
 }
-.btn--secondary {
+.btn__secondary {
   background-color: var(--theme-bg-neutral-default);
   color: var(--theme-text-primary);
   border: 0.15rem solid var(--theme-border-app);
 }
-.btn--secondary .btn__icon {
+.btn__secondary .btn__icon {
   width: 2rem;
   height: 2rem;
   background-color: var(--theme-text-secondary);
@@ -373,16 +393,16 @@ h4 {
   mask-position: center center;
   mask-size: cover;
 }
-.btn--secondary .btn__text {
+.btn__secondary .btn__text {
   color: var(--theme-text-secondary);
 }
-.btn--secondary:hover {
+.btn__secondary:hover {
   background-color: transparent;
 }
-.btn--secondary:hover .btn__text {
+.btn__secondary:hover .btn__text {
   color: var(--theme-text-primary);
 }
-.btn--secondary:hover .btn__icon {
+.btn__secondary:hover .btn__icon {
   width: 2rem;
   height: 2rem;
   background-color: var(--theme-text-primary);
@@ -390,14 +410,14 @@ h4 {
   mask-position: center center;
   mask-size: cover;
 }
-.btn--secondary:active {
+.btn__secondary:active {
   background-color: var(--theme-bg-neutral-active);
 }
-.btn--tertiary {
+.btn__tertiary {
   background-color: transparent;
   color: var(--theme-text-primary);
 }
-.btn--tertiary .btn__icon {
+.btn__tertiary .btn__icon {
   width: 2rem;
   height: 2rem;
   background-color: var(--theme-text-secondary);
@@ -405,16 +425,16 @@ h4 {
   mask-position: center center;
   mask-size: cover;
 }
-.btn--tertiary .btn__text {
+.btn__tertiary .btn__text {
   color: var(--theme-text-secondary);
 }
-.btn--tertiary:hover {
+.btn__tertiary:hover {
   border: 0.15rem solid var(--theme-border-app);
 }
-.btn--tertiary:hover .btn__text {
+.btn__tertiary:hover .btn__text {
   color: var(--theme-text-primary);
 }
-.btn--tertiary:hover .btn__icon {
+.btn__tertiary:hover .btn__icon {
   width: 2rem;
   height: 2rem;
   background-color: var(--theme-text-primary);
@@ -422,7 +442,7 @@ h4 {
   mask-position: center center;
   mask-size: cover;
 }
-.btn--tertiary:active {
+.btn__tertiary:active {
   background-color: var(--theme-bg-neutral-active);
 }
 .btn--disabled {
@@ -441,10 +461,55 @@ h4 {
 .btn--disabled .btn__text {
   color: var(--theme-border-neutral);
 }
+.btn__primary--hover {
+  background-color: var(--theme-bg-accent-hover);
+}
+.btn__primary--active {
+  background-color: var(--theme-bg-accent-active);
+}
+.btn__secondary--hover {
+  background-color: transparent;
+}
+.btn__secondary--hover .btn__text {
+  color: var(--theme-text-primary);
+}
+.btn__secondary--hover .btn__icon {
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--theme-text-primary);
+  mask-repeat: no-repeat;
+  mask-position: center center;
+  mask-size: cover;
+}
+.btn__secondary--active {
+  background-color: var(--theme-bg-neutral-active);
+}
+.btn__tertiary--hover {
+  border: 0.15rem solid var(--theme-border-app);
+}
+.btn__tertiary--hover .btn__text {
+  color: var(--theme-text-primary);
+}
+.btn__tertiary--hover .btn__icon {
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--theme-text-primary);
+  mask-repeat: no-repeat;
+  mask-position: center center;
+  mask-size: cover;
+}
+.btn__tertiary--active {
+  background-color: var(--theme-bg-neutral-active);
+}
+
+.disabled {
+  pointer-events: none;
+}
 
 .checkbox {
   position: relative;
   margin-bottom: 2rem;
+  min-width: 18rem;
 }
 .checkbox__input {
   display: none;
@@ -540,6 +605,13 @@ h4 {
   background-color: transparent;
   opacity: 1;
   color: var(--theme-text-disabled);
+}
+.checkbox__input--hover ~ .checkbox__label .checkbox__button {
+  border: 0.15rem solid var(--theme-border-accent);
+}
+.checkbox__input--active ~ .checkbox__label .checkbox__button {
+  border: 0.15rem solid var(--theme-border-accent);
+  background-color: var(--theme-bg-neutral-active);
 }
 
 .checkbox-group__title-container {

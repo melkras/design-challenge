@@ -4,7 +4,7 @@ import { isDisabled, isInvalid } from "../../utils";
 type TCheckboxGroupProps = {
     label: string;
     infoLabel: string;
-    children: React.ReactElement<TCheckbox>[];
+    children: React.ReactElement<TCheckbox>[] | React.ReactElement<TCheckbox>;
     disabled?: boolean;
     errorText?: string;
     required?: boolean;

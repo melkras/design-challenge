@@ -15,4 +15,26 @@
     --blue-60: #2D17B5;
     --red-40: #E82D5A;
     --red-50: #E82D5A;
+
+    --theme-bg-app: var(--neutral-10);
+
+    --theme-bg-accent-default: var(--blue-50);
+    --theme-bg-accent-hover: var(--blue-40);
+    --theme-bg-accent-active: var(--blue-60);
+
+    --theme-bg-neutral-default: var(--neutral-0);
+    --theme-bg-neutral-hover: var(--neutral-10);
+    --theme-bg-neutral-active: var(--neutral-20);
+
+    --theme-border-app: var(--neutral-20);
+    --theme-border-accent: var(--blue-40);
+    --theme-border-neutral: var(--neutral-30);
+    --theme-border-error: var(--red-50);
+
+    --theme-text-accent: var(--blue-50);
+    --theme-text-primary: var(--neutral-90);
+    --theme-text-secondary: var(--neutral-60);
+    --theme-text-inverse: var(--neutral-0);
+    --theme-text-disabled: var(--neutral-50);
+    --theme-text-error: var(--red-50);
 }

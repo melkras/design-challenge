@@ -1,20 +1,24 @@
 import { memo } from "react";
-import { isDisabled } from "../../utils";
+import { getStateClassName, isDisabled } from "../../utils";
 
 export type TCheckbox = {
+    state?: 'default' | 'hover' | 'active';
     name: string;
     label: string;
-    helpLabel?: string;
+    helpLabel: string;
+    showHelp?: boolean;
     checked?: boolean;
     disabled?: boolean;
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
+
 export default memo(function Checkbox(props: TCheckbox) {
-    const { name, checked, disabled, onChange, label, helpLabel, ...rest } = props;
+    const { state, name, checked, disabled, onChange, label, helpLabel, showHelp, ...rest } = props;
+
     return (
         <div className={`checkbox ${isDisabled(disabled)}`}>
             <input
-                className="checkbox__input"
+                className={`checkbox__input ${getStateClassName(state, 'checkbox__input')}`}
                 name={name}
                 id={name + label}
                 checked={checked}
@@ -28,7 +32,7 @@ export default memo(function Checkbox(props: TCheckbox) {
                 <span className="checkbox__button"></span>
                 {label}
             </label>
-            {helpLabel &&
+            {showHelp === true && helpLabel &&
                 <span className="checkbox__helper-text">{helpLabel}</span>
             }
         </div>

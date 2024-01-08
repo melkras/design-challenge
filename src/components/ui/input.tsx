@@ -1,6 +1,7 @@
-import { isDisabled, isInvalid } from "../../utils";
+import { getStateClassName, isDisabled, isInvalid } from "../../utils";
 
-type TInput = {
+export type TInput = {
+    state?: 'default' | 'hover' | 'active';
     label: string;
     showLabel?: boolean;
     helpLabel?: string;
@@ -13,9 +14,10 @@ type TInput = {
     disabled?: boolean;
 };
 export default function Input(props: TInput) {
-    const { label, showLabel, helpLabel, showHelp, name, type = 'text', value, onChange, invalid, disabled } = props;
+    const { state, label, showLabel, helpLabel, showHelp, name, type = 'text', value, onChange, invalid, disabled } = props;
+
     return (
-        <div className={`input ${isDisabled(disabled)} ${isInvalid(invalid)}`}>
+        <div className={`input ${getStateClassName(state, 'input')} ${isDisabled(disabled)} ${isInvalid(invalid)}`}>
             {showLabel !== false &&
                 <label className='input__label' htmlFor={name + label}>
                     {label}
