@@ -11,10 +11,11 @@
 
     &::before {
         content: "";
-        background-image: url('./assets/graphics/bg.svg');
-        background-repeat: no-repeat;
-        background-position: 0rem 20rem;
-        background-size: contain;
+        background: var(--theme-bg-gradient);
+        mask-image: url('./assets/graphics/bg.svg');
+        mask-repeat: no-repeat;
+        mask-size: contain;
+        mask-position: 0 30%;
         width: inherit;
         height: inherit;
         z-index: -1;
@@ -22,6 +23,5 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        opacity: .2;
     }
 }
