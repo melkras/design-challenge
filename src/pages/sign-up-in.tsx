@@ -47,28 +47,29 @@ export default function SignUpIn() {
                 <p className="intro__subtitle">Give us your credentials and we shall let you pass.</p>
             </div>
             <Form onSubmit={(e) => e.preventDefault()}>
-
                 <FormGroup>
-                    <div className="form__form-group__row">
-                        <Input
-                            label="First name"
-                            name="name"
-                            type="text"
-                            value={values.name}
-                            onChange={inputHandler}
-                        // disabled={false}
-                        />
-                        <Input
-                            label="Last name"
-                            name="surname"
-                            type="text"
-                            value={values.surname}
-                            onChange={inputHandler}
+                    {signup &&
+                        <div className="form__form-group__row">
+                            <Input
+                                label="First name"
+                                name="name"
+                                type="text"
+                                value={values.name}
+                                onChange={inputHandler}
                             // disabled={false}
-                            showHelp={true}
-                        // invalid={true}
-                        />
-                    </div>
+                            />
+                            <Input
+                                label="Last name"
+                                name="surname"
+                                type="text"
+                                value={values.surname}
+                                onChange={inputHandler}
+                                // disabled={false}
+                                showHelp={true}
+                            // invalid={true}
+                            />
+                        </div>
+                    }
                     <Input
                         label="Email"
                         name="email"
