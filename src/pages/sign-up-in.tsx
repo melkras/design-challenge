@@ -53,7 +53,7 @@ export default function SignUpIn() {
                         label="Password"
                         type="password"
                         invalid={errors.password ? true : false}
-                        helpLabel={errors?.password?.message}
+                        helpLabel={errors?.password?.message || 'Create a strong password with a mix of letters, numbers and symbols'}
                         name="password"
                         inputRef={{ ...register("password") }.ref}
                         onChange={{ ...register("password") }.onChange}
@@ -69,12 +69,16 @@ export default function SignUpIn() {
                         <Checkbox
                             label={'Send me useless newsletters please'}
                             name="newsletter"
+                            helpLabel={'Our marketers will thank you, every day'}
+                            showHelp={true}
                             inputRef={{ ...register("newsletter") }.ref}
                             onChange={{ ...register("newsletter") }.onChange}
                         />
                         <Checkbox
                             label={'I agree with terms and conditions'}
                             name="terms"
+                            helpLabel={'Contextual help message'}
+                            showHelp={true}
                             inputRef={{ ...register("terms") }.ref}
                             onChange={{ ...register("terms") }.onChange}
                         />

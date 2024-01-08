@@ -27,7 +27,7 @@ export default function useFormState() {
       .min(6, { message: 'Password must be atleast 6 characters' }),
     newsletter: z.boolean().optional(),
     terms: z.boolean().refine((data) => data, {
-      message: "Take a knee and accept our terms!",
+      message: "Bend a knee and accept our terms!",
     }),
   });
 

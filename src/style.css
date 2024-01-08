@@ -717,7 +717,7 @@ h4 {
 }
 
 .signup {
-  max-width: 51.2rem;
+  width: 51.2rem;
 }
 @media (max-width: 37.5em) {
   .signup {
