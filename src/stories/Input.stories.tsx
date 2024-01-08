@@ -11,8 +11,11 @@ const meta: Meta = {
   tags: ['autodocs'],
   argTypes: {
     state: {
-      description: 'default, hover, active',
       defaultValue: '',
+      variant: {
+        options: ['default', 'hover', 'active'],
+        control: { type: 'radio' },
+      },
     },
     label: {
       description: 'string',

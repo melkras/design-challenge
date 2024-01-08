@@ -5,10 +5,10 @@
 import React, { memo } from "react";
 import { TCheckbox } from "./checkbox";
 import { isDisabled, isInvalid } from "../../utils";
-type TCheckboxGroupProps = {
+export type TCheckboxGroupProps = {
     label: string;
     infoLabel: string;
-    children: React.ReactElement<TCheckbox>[] | React.ReactElement<TCheckbox>;
+    children?: React.ReactElement<TCheckbox>[] | React.ReactElement<TCheckbox>;
     disabled?: boolean;
     errorText?: string;
     required?: boolean;

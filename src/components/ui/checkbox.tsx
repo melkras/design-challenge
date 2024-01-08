@@ -15,6 +15,7 @@ export type TCheckbox = {
     disabled?: boolean;
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     inputRef?: React.Ref<HTMLInputElement>;
+    ref?: React.Ref<HTMLInputElement>; // hack to hide ts errors inside storybook
 };
 
 const Checkbox: React.FC<TCheckbox> = ({ state, name, checked, disabled, onChange, label, helpLabel, showHelp, inputRef, ...rest }) => {

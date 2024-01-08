@@ -33,6 +33,11 @@ const meta: Meta = {
         disable: true,
       }
     },
+    inputRef: {
+      table: {
+        disable: true,
+      }
+    },
     onChange: {
       table: {
         disable: true,

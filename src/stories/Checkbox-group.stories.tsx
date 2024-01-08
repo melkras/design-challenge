@@ -1,17 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import CheckboxGroup from '../components/ui/checkbox-group';
-import Checkbox from '../components/ui/checkbox';
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
+import { default as CheckboxG, TCheckboxGroupProps } from '../components/ui/checkbox-group';
+import { useArgs } from '@storybook/preview-api';
+import { default as Checkb } from '../components/ui/checkbox';
 const meta = {
   title: 'Example/Checkbox-group',
-  component: CheckboxGroup,
+  component: CheckboxG,
   parameters: {
-    // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: 'centered',
   },
-  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ['autodocs'],
-  // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
     label: {
       description: 'string',
@@ -44,23 +41,46 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof CheckboxGroup>;
+} satisfies Meta<typeof CheckboxG>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Group: Story = {
-  args: {
-    label: 'Group title',
-    infoLabel: 'Group information text',
-    errorText: 'Group error text',
-    disabled: false,
-    invalid: true,
-    required: true,
-    children:
-      [
-        <Checkbox name="checbox1" helpLabel="Contextual help message" label="Label" onChange={console.log} />,
-        <Checkbox name="checbox2" helpLabel="Contextual help message" label="Label" onChange={console.log} />,
-      ],
-  }
+export const CheckboxGroup: Story = (args: TCheckboxGroupProps) => {
+  const [{ disabled, invalid, errorText }] = useArgs();
+
+  return (
+    <CheckboxG
+      {...args}
+      disabled={disabled}
+      invalid={invalid}
+      errorText={errorText}
+    >
+      <Checkb
+        name="checbox1"
+        helpLabel="Contextual help message"
+        showHelp={true}
+        label="Label"
+        onChange={console.log}
+      />
+      <Checkb
+        name="checbox2"
+        helpLabel="Contextual help message"
+        label="Label"
+        onChange={console.log}
+        showHelp={true}
+      />
+
+    </CheckboxG>
+
+  );
+};
+
+CheckboxGroup.args = {
+  label: 'Group title',
+  infoLabel: 'Group information text',
+  errorText: 'Group error text',
+  required: true,
+  invalid: true,
+  disabled: false,
 };
