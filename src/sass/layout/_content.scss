@@ -9,6 +9,10 @@
     background-color: var(--theme-bg-app);
     z-index: 1;
 
+    @include response(phone) {
+        padding: 1.6rem;
+    }
+
     &::before {
         content: "";
         background: var(--theme-bg-gradient);

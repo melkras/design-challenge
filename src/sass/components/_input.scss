@@ -87,5 +87,6 @@ $input-border-radius: .4rem;
         height: 2rem;
         width: 2rem;
         mask-image: url('./assets/icons/close.svg');
+        mask-size: contain;
     }
 }

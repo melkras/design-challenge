@@ -38,6 +38,7 @@ $transition: all 75ms ease-out;
             left: 50%;
             transform: translate(-50%, -50%);
             mask-image: url('./assets/icons/done.svg');
+            mask-size: cover;
             background-color: var(--theme-text-inverse);
             z-index: 2;
             opacity: 0;

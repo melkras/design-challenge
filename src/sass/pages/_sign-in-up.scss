@@ -1,11 +1,19 @@
 .signup {
-    width: 51.2rem;
+    max-width: 51.2rem;
+
+    @include response(phone) {
+        max-width: 100%
+    }
 }
 
 .intro {
     .intro__title {
         @include apply-font-styles($display, medium);
         margin-bottom: .8rem;
+
+        @include response(phone) {
+            @include apply-font-styles($display, small);
+        }
     }
 
     .intro__subtitle {
