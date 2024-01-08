@@ -22,7 +22,7 @@ Inside the project root folder
 ```
 ## How to run on dev
 
-To run project on dev
+To run project on dev server port 3000
 
 ```bash
   npm run start
