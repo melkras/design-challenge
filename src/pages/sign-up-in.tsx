@@ -3,17 +3,15 @@ import Checkbox from "../components/ui/checkbox";
 import CheckboxGroup from "../components/ui/checkbox-group";
 import Input from "../components/ui/input";
 import Form, { FormGroup } from "../components/ui/form";
-import Button from "../components/ui/button";
 import useFormState from "../hooks/use-formState";
+import PageTitle from "../components/page-title";
+import PageActions from "../components/page-actions";
 
 export default function SignUpIn() {
     const { signup, errors, register, handleSubmit, onSubmit, signinButtonHandler, signupButtonHandler } = useFormState();
     return (
         <Container className="signup">
-            <div className="intro">
-                <h1 className="intro__title">Welcome to componento!</h1>
-                <p className="intro__subtitle">Give us your credentials and we shall let you pass.</p>
-            </div>
+            <PageTitle />
             <Form onSubmit={handleSubmit(onSubmit)}>
                 <FormGroup>
                     {signup &&
@@ -64,19 +62,11 @@ export default function SignUpIn() {
                         />
                     </CheckboxGroup>
                 </FormGroup>
-                <div className={`actions ${signup ? 'reverse-order' : ''}`}>
-                    <Button
-                        onClick={signinButtonHandler}
-                        label={"Sign in"}
-                        priority={`${signup ? 'tertiary' : 'primary'}`}
-                    />
-                    <div className="actions__spacer">or</div>
-                    <Button
-                        onClick={signupButtonHandler}
-                        label={"Create account"}
-                        priority={`${!signup ? 'tertiary' : 'primary'}`}
-                    />
-                </div>
+                <PageActions
+                    signup={signup}
+                    signinButtonHandler={signinButtonHandler}
+                    signupButtonHandler={signupButtonHandler}
+                />
             </Form>
         </Container>
     );

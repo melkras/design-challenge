@@ -27,6 +27,7 @@ const Input: React.FC<TInput> =
                     </label>
                 }
                 <input className='input__input-value'
+                    autoComplete="off"
                     name={name}
                     type={type}
                     id={name + label}

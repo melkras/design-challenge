@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -42,15 +42,14 @@ export default function useFormState() {
   const onSubmit: SubmitHandler<SignUpSchemaType> = (data) => {
     console.log(data);
   };
-  const signupButtonHandler = (e: React.SyntheticEvent) => {
+  const signupButtonHandler = useCallback((e: React.SyntheticEvent) => {
     if (!signup) { e.preventDefault(); }
     setSignup(true);
-
-  };
-  const signinButtonHandler = (e: React.SyntheticEvent) => {
+  }, [signup]);
+  const signinButtonHandler = useCallback((e: React.SyntheticEvent) => {
     if (signup) { e.preventDefault(); }
     setSignup(false);
-  };
+  }, [signup]);
   return {
     signup, errors, register, handleSubmit, onSubmit, signinButtonHandler, signupButtonHandler
   };
