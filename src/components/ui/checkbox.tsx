@@ -30,8 +30,8 @@ const Checkbox: React.FC<TCheckbox> = ({ state, name, checked, disabled, onChang
                 type="checkbox"
                 aria-label={label}
                 onChange={onChange}
-                ref={inputRef}
                 {...rest}
+                ref={inputRef}
 
             />
             <label htmlFor={name + label} className="checkbox__label">

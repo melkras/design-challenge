@@ -57,6 +57,7 @@ export default function useFormState() {
     if (signup) { e.preventDefault(); }
     setSignup(false);
   }, [signup]);
+
   return {
     signup, errors, register, handleSubmit, onSubmit, signinButtonHandler, signupButtonHandler
   };

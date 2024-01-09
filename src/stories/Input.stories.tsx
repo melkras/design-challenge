@@ -14,7 +14,7 @@ const meta: Meta = {
       defaultValue: '',
       variant: {
         options: ['default', 'hover', 'active'],
-        control: { type: 'radio' },
+        control: { type: 'radio' }, // this is not working for some reason ?
       },
     },
     label: {

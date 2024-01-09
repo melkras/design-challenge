@@ -27,27 +27,7 @@ const meta: Meta = {
     },
     checked: {
       defaultValue: false,
-    },
-    ref: {
-      table: {
-        disable: true,
-      }
-    },
-    inputRef: {
-      table: {
-        disable: true,
-      }
-    },
-    onChange: {
-      table: {
-        disable: true,
-      }
-    },
-    name: {
-      table: {
-        disable: true,
-      }
-    },
+    }
   },
 } satisfies Meta<typeof CheckB>;
 
